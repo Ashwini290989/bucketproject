@@ -31,9 +31,7 @@ public class BucketprojectApplication implements CommandLineRunner {
         String secretKey = dotenv.get("SECRET_KEY");
 
 
-                //Scanner scanner = new Scanner(System.in);
-
-                // create S3 client with credentials and region
+        // create S3 client with credentials and region
                 S3Client s3Client = S3Client.builder()
                 .credentialsProvider(new AwsCredentialsProvider() {
                     @Override
@@ -47,39 +45,7 @@ public class BucketprojectApplication implements CommandLineRunner {
                 .build();
         Scanner scanner = new Scanner(System.in);
 
-
-
-//                GetItemRequest getItemRequest = GetItemRequest.builder()
-//                        .tableName("Person")
-//                        .key(Map.of("personNummer",AttributeValue.builder().s("19900111-2222").build()))
-//                        .build();
-//
-//                GetItemResponse response = dynamoDbClient.getItem(getItemRequest);
-//                Map<String,AttributeValue>returnedItem = response.item();
-//                if(returnedItem.isEmpty()){
-//                    system.out.println("No item found");
-//
-//                }else {
-//                    String name = returnedItem.get("name").s();
-//                    System.out.println("Name:"+name);
-//                }
-//                PutItemRequest putItemRequest= PutItemRequest.builder()
-//                        .tableName("person")
-//                        .item(Map.of("pernummer",AttributeValue.builder().s("19900111-2222").build()),
-//                        "name",AttributeValue.builder().s("Ashwini").build(),
-//                        "isHungry",AttributeValue.builder().s("YES!").build())
-//        .build();
-//        dynamoDbClient.putItem(putItemRequest);
-
-
-
-                // List<String>filnamen= new S3Service().listAll();
-               // s3Client s3Client = new S3Client();
-               //s3Client.Connect(accessKey,secretKey);
-               // List<String> filnamen = s3Client.ListFiles(bucketName);
-
-
-                while (true) {
+        while (true) {
                     System.out.println("\n--------S3 Bucket Menu--------");
                     System.out.println("1.List all files");
                     System.out.println("2.Upload a file");
@@ -100,8 +66,7 @@ public class BucketprojectApplication implements CommandLineRunner {
                             for (String name : fileName) {
                                 System.out.println(name);
                             }
-                           // fileName.forEach(System.out::println);
-                            //lists alla filer som heter "AshwiniShirsat-bucketprojectapplication"
+
                             break;
 
                         case 2:
